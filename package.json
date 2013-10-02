@@ -1,0 +1,12 @@
+{
+  "name": "meducation-dashboard",
+  "description": "A dashboard application to provide metrics that show the pulse of Meducation",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.4.0"
+  }
+}
