@@ -6,5 +6,6 @@ A dashboard application to provide metrics that show the pulse of Meducation.
 
 This is a node application.  You should install [node](http://nodejs.org/) first then:
 
+    npm install -g coffee-script
     npm install
-    node app.js
+    coffee app.coffee
