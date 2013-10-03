@@ -50,19 +50,26 @@
         Dashboard <b>/ Overview</b>
     </header>
     <section class="metric-channel">
-        <div class="metric-block orange">
-            <p class="metric-block-number">123456</p>
-            <p class="metric-block-text">Anonymous Visitors</p>
-        </div>
-        <div class="metric-block blue">
-            <p class="metric-block-number">78910</p>
-            <p class="metric-block-text">Normal Visitors</p>
-        </div>
-        <div class="metric-block green">
-            <p class="metric-block-number">123</p>
-            <p class="metric-block-text">Premium Visitors</p>
-        </div>
+        {{#each metrics }}
+            <div class="metric-block {{ this.colour }}">
+                <p class="metric-block-number">{{ this.number }}</p>
+                <p class="metric-block-text">{{ this.title }}</p>
+            </div>
+        {{/each}}
     </section>
 </section>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost:3000');
+    socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+    });
+
+    socket.on('metric', function (data) {
+       console.log(data);
+
+    });
+</script>
 </body>
 </html>

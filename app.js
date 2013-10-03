@@ -8,6 +8,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var engines = require('consolidate');
+var socketIO = require('socket.io');
 
 var app = express();
 
@@ -30,6 +31,21 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app);
+var io = socketIO.listen(server);
+server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+io.sockets.on('connection', function (socket) {
+    socket.emit('news', { hello: 'world' });
+    socket.on('my other event', function (data) {
+        console.log(data);
+    });
+
+    setInterval(function() {
+        socket.emit('metric', {
+            number: Math.random()
+        });
+    }, 1000);
 });
