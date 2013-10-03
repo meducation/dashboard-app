@@ -12,6 +12,7 @@ h1 {
 li {
     font-size: 1.2em;
     line-height: 2.35em;
+    font-weight: 300;
 }
 
 ul {
@@ -25,10 +26,19 @@ ul {
 
 #main header {
     font-size: 1.5rem;
+    font-weight: 300;
+    background-color: #f2f2f2;
     padding: 46px 0 32px 48px;
+    border-bottom: 1px solid #dfdfdf;
 }
 
-.metric-channel {
+.metric-channel h1 {
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 32px 0 32px 48px;
+}
+
+.metric-channel-blocks {
     display: flex;
 }
 
@@ -68,21 +78,56 @@ nav .active {
     background-color: #21211e;
 }
 
-.nav-menu-heading {
-    padding-top: 20px;
-    margin: 0 28px 20px 28px;
+.nav-menu-section {
+    padding: 20px 28px 20px 28px;
+    position: relative;
+}
+
+.nav-menu-section h1 {
+    font-weight: 100;
+    display: inline-block;
+}
+
+.nav-menu-dropdown {
+    position: absolute;
+    right: 26px;
+    top: 20px;
 }
 
 nav .heading {
     font-size: 2.45em;
+    font-weight: 100;
+    letter-spacing: -1px;
 }
 
 nav .sub-heading {
     font-size: 1.4em;
+    font-weight: 100;
+    color: #d5d5d5;
 }
 
 nav section h1 {
     font-size: 1.4em;
+}
+
+.nav-menu-icon {
+    margin-right: 17px;
+    width: 14px;
+    height: 14px;
+}
+
+.nav-hide-button {
+    color: #fff;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1.2em;
+    background-color: #3d3d37;
+    border-radius: 5px;
+    border: 1px solid #5a5a52;
+    padding: 8px 14px;
+    /* TODO: Move this out to a container */
+    margin-left: 28px;
+    margin-top: 38px;
 }
 
 .orange {
@@ -97,4 +142,6 @@ nav section h1 {
     background-color: #66b036;
 }
 
-/* gaps between icons and text 17px */
+.slash {
+    color: #bcbcbc;
+}

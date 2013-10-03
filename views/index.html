@@ -12,6 +12,7 @@
     <script type="text/javascript" src="//use.typekit.net/zry5tcv.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/fontello.css">
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
@@ -23,11 +24,15 @@
         <h1 class="heading">meducation</h1>
         <p class="sub-heading">Stats Dashboard</p>
     </header>
-    <section>
-        <h1 class="nav-menu-heading">Overview</h1>
+
+    <section class="nav-menu-section">
+        <img src="images/overview.png" class="nav-menu-icon">
+        <h1>Overview</h1>
     </section>
-    <section class="active">
-        <h1 class="nav-menu-heading">Content</h1>
+    <section class="nav-menu-section active">
+        <img src="images/content.png" class="nav-menu-icon">
+        <h1>Content</h1>
+        <span class="nav-menu-dropdown icon-down-open-mini"></span>
         <ul>
             <li>Types</li>
             <li>Products</li>
@@ -35,30 +40,36 @@
             <li>Goals</li>
         </ul>
     </section>
-    <section>
-        <h1 class="nav-menu-heading">Development</h1>
+    <section class="nav-menu-section">
+        <img src="images/development.png" class="nav-menu-icon">
+        <h1>Development</h1>
     </section>
-    <section>
-        <h1 class="nav-menu-heading">Community</h1>
+    <section class="nav-menu-section">
+        <img src="images/community.png" class="nav-menu-icon">
+        <h1>Community</h1>
     </section>
-    <section>
-        <h1 class="nav-menu-heading">Revenue</h1>
+    <section class="nav-menu-section">
+        <img src="images/revenue.png" class="nav-menu-icon">
+        <h1>Revenue</h1>
     </section>
+    <button class="nav-hide-button">Hide Menu</button>
 </nav>
 <section id="main">
     <header>
-        Dashboard <b>/ Overview</b>
+        Dashboard <span class="slash">/</span><b> Overview</b>
     </header>
     <section class="metric-channel">
-        <script id="metric-block-template" type="text/x-handlebars-template">
-        {{#each metrics}}
-            <div class="metric-block {{ this.colour }}">
-                <p class="metric-block-number">{{ this.number }}</p>
-                <p class="metric-block-text">{{ this.title }}</p>
-            </div>
-        {{/each}}
+        <h1>Visitor Stats</h1>
+        <div class="metric-channel-blocks">
+            <script id="metric-block-template" type="text/x-handlebars-template">
+            {{#each metrics}}
+                <div class="metric-block {{ this.colour }}">
+                    <p class="metric-block-number">{{ this.number }}</p>
+                    <p class="metric-block-text">{{ this.title }}</p>
+                </div>
+            {{/each}}
+        </div>
         </script>
-
     </section>
 </section>
 <script src="/socket.io/socket.io.js"></script>
@@ -74,7 +85,7 @@
     }
     var source   = $("#metric-block-template").html();
     var template = Handlebars.compile(source);
-    $('.metric-channel').html(template(data));
+    $('.metric-channel-blocks').html(template(data));
 
     var socket = io.connect('http://localhost:3000');
 
@@ -82,7 +93,7 @@
            for(key in payload.metrics) {
                data.metrics[key].number = payload.metrics[key];
             }
-            $('.metric-channel').html(template(data));
+            $('.metric-channel-blocks').html(template(data));
         });
 </script>
 </body>
