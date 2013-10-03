@@ -50,22 +50,40 @@
         Dashboard <b>/ Overview</b>
     </header>
     <section class="metric-channel">
-        {{#each metrics }}
+        <script id="metric-block-template" type="text/x-handlebars-template">
+        {{#each metrics}}
             <div class="metric-block {{ this.colour }}">
                 <p class="metric-block-number">{{ this.number }}</p>
                 <p class="metric-block-text">{{ this.title }}</p>
             </div>
         {{/each}}
+        </script>
+
     </section>
 </section>
 <script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
 <script>
+    var data = {
+        metrics: {
+            anon: { colour: 'orange', number: '123', title: 'Anonymous Visitors' },
+            normal: { colour: 'blue', number: '456', title: 'Normal Visitors' },
+            premium: { colour: 'green', number: '789', title: 'Premium Visitors' }
+        }
+    }
+    var source   = $("#metric-block-template").html();
+    var template = Handlebars.compile(source);
+    $('.metric-channel').html(template(data));
+
     var socket = io.connect('http://localhost:3000');
 
-    socket.on('metric', function (data) {
-       console.log(data);
-
-    });
+        socket.on('metric', function (payload) {
+           for(key in payload.metrics) {
+               data.metrics[key].number = payload.metrics[key];
+            }
+            $('.metric-channel').html(template(data));
+        });
 </script>
 </body>
 </html>

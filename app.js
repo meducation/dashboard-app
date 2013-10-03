@@ -15,8 +15,6 @@ var app = express();
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'handlebars');
-app.engine('handlebars', engines.handlebars);
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -41,7 +39,11 @@ io.sockets.on('connection', function (socket) {
 
     setInterval(function() {
         socket.emit('metric', {
-            number: Math.random()
+            metrics : {
+                anon: Math.floor((Math.random()*10000)+1),
+                normal: Math.floor((Math.random()*1000)+1),
+                premium: Math.floor((Math.random()*100)+1)
+            }
         });
     }, 1000);
 });
