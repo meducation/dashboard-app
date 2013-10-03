@@ -75,26 +75,6 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
-<script>
-    var data = {
-        metrics: {
-            anon: { colour: 'orange', number: '123', title: 'Anonymous Visitors' },
-            normal: { colour: 'blue', number: '456', title: 'Normal Visitors' },
-            premium: { colour: 'green', number: '789', title: 'Premium Visitors' }
-        }
-    }
-    var source   = $("#metric-block-template").html();
-    var template = Handlebars.compile(source);
-    $('.metric-channel-blocks').html(template(data));
-
-    var socket = io.connect('http://' + window.location.hostname);
-
-        socket.on('metric', function (payload) {
-           for(key in payload.metrics) {
-               data.metrics[key].number = payload.metrics[key];
-            }
-            $('.metric-channel-blocks').html(template(data));
-        });
-</script>
+<script src="/javascripts/metric-updater.js"></script>
 </body>
 </html>
