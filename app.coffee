@@ -2,6 +2,7 @@
 
 express = require 'express'
 routes = require './routes'
+metrics = require './routes/metrics'
 http = require 'http'
 path = require 'path'
 socketIO = require 'socket.io'
@@ -25,6 +26,8 @@ if app.get 'env' is 'development'
   app.use express.errorHandler()
 
 app.get '/', routes.index
+app.post('/metrics/traffic', metrics.traffic);
+#TODO (for receiving page views): app.post('/events', metrics.events);
 
 server = http.createServer app
 io = socketIO.listen server
