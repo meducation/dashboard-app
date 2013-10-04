@@ -1,13 +1,13 @@
 data =
   metrics:
     anon:
-      colour: 'orange', number: 'loading...', title: 'Anonymous Visitors'
+      colour: 'orange', number: '...', title: 'Anonymous Visitors'
     ,
     normal:
-      colour: 'blue', number: 'loading...', title: 'Normal Visitors'
+      colour: 'blue', number: '...', title: 'Logged-in Visitors'
     ,
     premium:
-      colour: 'green', number: 'loading...', title: 'Premium Visitors'
+      colour: 'green', number: '...', title: 'Premium Visitors'
 
 source = $('#metric-block-template').html()
 template = Handlebars.compile source
