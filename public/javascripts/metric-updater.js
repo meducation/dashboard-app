@@ -1,19 +1,44 @@
-var data = {
+(function() {
+  var data, socket, source, template;
+
+  data = {
     metrics: {
-        anon: { colour: 'orange', number: 'loading...', title: 'Anonymous Visitors' },
-        normal: { colour: 'blue', number: 'loading...', title: 'Normal Visitors' },
-        premium: { colour: 'green', number: 'loading...', title: 'Premium Visitors' }
+      anon: {
+        colour: 'orange',
+        number: 'loading...',
+        title: 'Anonymous Visitors'
+      },
+      normal: {
+        colour: 'blue',
+        number: 'loading...',
+        title: 'Normal Visitors'
+      },
+      premium: {
+        colour: 'green',
+        number: 'loading...',
+        title: 'Premium Visitors'
+      }
     }
-}
-var source   = $("#metric-block-template").html();
-var template = Handlebars.compile(source);
-$('.metric-channel-blocks').html(template(data));
+  };
 
-var socket = io.connect('http://' + window.location.hostname);
+  source = $('#metric-block-template').html();
 
-socket.on('metric', function (payload) {
-    for(key in payload.metrics) {
-        data.metrics[key].number = payload.metrics[key];
+  template = Handlebars.compile(source);
+
+  $('.metric-channel-blocks').html(template(data));
+
+  socket = io.connect("http://" + window.location.hostname);
+
+  socket.on('metric', function(payload) {
+    var key;
+    for (key in payload.metrics) {
+      data.metrics[key].number = payload.metrics[key];
     }
-    $('.metric-channel-blocks').html(template(data));
-});
+    return $('.metric-channel-blocks').html(template(data));
+  });
+
+}).call(this);
+
+/*
+//@ sourceMappingURL=metric-updater.js.map
+*/
