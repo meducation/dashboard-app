@@ -29,6 +29,8 @@
 
   socket = io.connect("http://" + window.location.hostname);
 
+  socket.emit('ready');
+
   socket.on('metric', function(payload) {
     var key;
     for (key in payload.metrics) {
