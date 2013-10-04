@@ -5,17 +5,17 @@
     metrics: {
       anon: {
         colour: 'orange',
-        number: 'loading...',
+        number: '...',
         title: 'Anonymous Visitors'
       },
       normal: {
         colour: 'blue',
-        number: 'loading...',
-        title: 'Normal Visitors'
+        number: '...',
+        title: 'Logged-in Visitors'
       },
       premium: {
         colour: 'green',
-        number: 'loading...',
+        number: '...',
         title: 'Premium Visitors'
       }
     }
