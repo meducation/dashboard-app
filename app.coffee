@@ -26,8 +26,8 @@ if app.get 'env' is 'development'
 app.http().io()
 
 app.get '/', routes.index
-app.post('/metrics/traffic', metrics.traffic);
-app.post('/events', metrics.events);
+app.post('/metrics/traffic', metrics.traffic)
+app.post('/events', metrics.events)
 
 port = app.get 'port'
 app.listen port, ->
