@@ -4,11 +4,26 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "coffee app.coffee",
+    "test": "grunt test"
   },
   "dependencies": {
     "express": "3.4.0",
     "socket.io": "~0.9.16",
     "coffee-script": "~1.6.3"
+  },
+  "devDependencies": {
+    "matchdep": "~0.1.2",
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-bowerful": "~0.3.0",
+    "grunt-express-server": "~0.4.3",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-coffeelint": "0.0.7",
+    "grunt-contrib-jasmine": "~0.5.2",
+    "grunt-template-jasmine-istanbul": "~0.2.5",
+    "coveralls": "~2.3.0"
   }
 }
