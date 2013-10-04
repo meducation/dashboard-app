@@ -27,7 +27,7 @@ if app.get 'env' is 'development'
 
 app.get '/', routes.index
 app.post('/metrics/traffic', metrics.traffic);
-#TODO (for receiving page views): app.post('/events', metrics.events);
+app.post('/events', metrics.events);
 
 server = http.createServer app
 io = socketIO.listen server
