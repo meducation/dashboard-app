@@ -22,9 +22,15 @@ ul {
     padding-bottom: 20px;
 }
 
+#container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
 #main {
-    float: right;
-    width: 82%;
+    flex: 5;
 }
 
 #main header {
@@ -64,11 +70,10 @@ ul {
 }
 
 nav {
-    position: absolute;
+    flex: 1;
     padding-top: 46px;
     color: #fff;
     background-color: #2d2d29;
-    width: 18%;
     height: 100%;
 }
 
