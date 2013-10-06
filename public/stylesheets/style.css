@@ -33,7 +33,7 @@ ul {
     flex: 5;
 }
 
-#main header {
+#main > h1 {
     font-size: 2.4rem;
     font-weight: 300;
     background-color: #f2f2f2;
