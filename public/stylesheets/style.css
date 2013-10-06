@@ -1,5 +1,8 @@
-body {
+html {
     font-size: 62.5%;
+}
+
+body {
     font-family: "museo-sans", Georgia, Times, "Times New Roman", serif;
     color: #2d2d29;
     background-color: #f7f7f7;
@@ -10,8 +13,8 @@ h1 {
 }
 
 li {
-    font-size: 1.2em;
-    line-height: 2.35em;
+    font-size: 1.2rem;
+    line-height: 2.8rem;
     font-weight: 300;
 }
 
@@ -25,7 +28,7 @@ ul {
 }
 
 #main header {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     font-weight: 300;
     background-color: #f2f2f2;
     padding: 46px 0 32px 48px;
@@ -33,7 +36,7 @@ ul {
 }
 
 .metric-channel h1 {
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 300;
     padding: 32px 0 32px 48px;
 }
@@ -49,13 +52,13 @@ ul {
 }
 
 .metric-block-number {
-    font-size: 3.75rem;
+    font-size: 6rem;
     margin-top: 30px;
     margin-bottom: 12px;
 }
 
 .metric-block-text {
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     margin-top: 10px;
     padding-bottom: 18px;
 }
@@ -95,19 +98,19 @@ nav .active {
 }
 
 nav .heading {
-    font-size: 2.45em;
+    font-size: 2.45rem;
     font-weight: 100;
     letter-spacing: -1px;
 }
 
 nav .sub-heading {
-    font-size: 1.4em;
+    font-size: 1.4rem;
     font-weight: 100;
     color: #d5d5d5;
 }
 
 nav section h1 {
-    font-size: 1.4em;
+    font-size: 1.4rem;
 }
 
 .nav-menu-icon {
@@ -120,7 +123,7 @@ nav section h1 {
     color: #fff;
     font-family: inherit;
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     background-color: #3d3d37;
     border-radius: 5px;
     border: 1px solid #5a5a52;
