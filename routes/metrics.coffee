@@ -14,8 +14,6 @@ exports.traffic = (request, response) ->
   response.send 200
 
 exports.events = (request, response) ->
-
-  for key, value of request.body
-    console.log "received: #{key}:#{value}"
+  console.log request.body
 
   response.send 200
