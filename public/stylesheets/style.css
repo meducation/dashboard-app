@@ -93,6 +93,7 @@ nav {
     color: #fff;
     background-color: #2d2d29;
     height: 100%;
+    display: none;
 }
 
 nav > header {
