@@ -3,46 +3,21 @@ html {
 }
 
 body {
-    font-family: "museo-sans", Georgia, Times, "Times New Roman", serif;
     color: #2d2d29;
     background-color: #f7f7f7;
+}
+
+body,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+    font-family: "museo-sans", Georgia, Times, "Times New Roman", serif;
 }
 
 h1 {
     margin: 0;
 }
 
-li {
-    font-size: 1.2rem;
-    line-height: 2.8rem;
-    font-weight: 300;
-}
-
-ul {
-    padding-bottom: 20px;
-}
-
-#container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-}
-
-#main {
-    -webkit-box-flex: 5;      /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex: 5;         /* OLD - Firefox 19- */
-    width: 80%;               /* For old syntax, otherwise collapses. */
-    -webkit-flex: 5;          /* Chrome */
-    -ms-flex: 5;              /* IE 10 */
-    flex: 5;
-}
-
-#main > h1 {
+.heading {
     font-size: 2.4rem;
     font-weight: 300;
     background-color: #f2f2f2;
@@ -50,22 +25,13 @@ ul {
     border-bottom: 1px solid #dfdfdf;
 }
 
-.metric-channel h1 {
+.sub-heading {
     font-size: 1.6rem;
     font-weight: 300;
     padding: 32px 0 32px 48px;
 }
 
-.metric-channel-blocks {
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-}
-
 .metric-block {
-    width: 34%;
     text-align: center;
     color: #fff;
 }
@@ -82,81 +48,6 @@ ul {
     padding-bottom: 18px;
 }
 
-nav {
-    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex: 1;         /* OLD - Firefox 19- */
-    width: 20%;               /* For old syntax, otherwise collapses. */
-    -webkit-flex: 1;          /* Chrome */
-    -ms-flex: 1;              /* IE 10 */
-    flex: 1;
-    padding-top: 46px;
-    color: #fff;
-    background-color: #2d2d29;
-    height: 100%;
-    display: none;
-}
-
-nav > header {
-    text-align: center;
-    margin-bottom: 36px;
-}
-
-nav .active {
-    background-color: #21211e;
-}
-
-.nav-menu-section {
-    padding: 20px 28px 20px 28px;
-    position: relative;
-}
-
-.nav-menu-section h1 {
-    font-weight: 100;
-    display: inline-block;
-}
-
-.nav-menu-dropdown {
-    position: absolute;
-    right: 26px;
-    top: 20px;
-}
-
-nav .heading {
-    font-size: 2.45rem;
-    font-weight: 100;
-    letter-spacing: -1px;
-}
-
-nav .sub-heading {
-    font-size: 1.4rem;
-    font-weight: 100;
-    color: #d5d5d5;
-}
-
-nav section h1 {
-    font-size: 1.4rem;
-}
-
-.nav-menu-icon {
-    margin-right: 17px;
-    width: 14px;
-    height: 14px;
-}
-
-.nav-hide-button {
-    color: #fff;
-    font-family: inherit;
-    font-weight: 500;
-    font-size: 1.2rem;
-    background-color: #3d3d37;
-    border-radius: 5px;
-    border: 1px solid #5a5a52;
-    padding: 8px 14px;
-    /* TODO: Move this out to a container */
-    margin-left: 28px;
-    margin-top: 38px;
-}
-
 .orange {
     background-color: #f26522;
 }
@@ -171,27 +62,4 @@ nav section h1 {
 
 .slash {
     color: #bcbcbc;
-}
-/*
- * Fade the screen to black and back to protect plasma screens
- */
-.fade-to-black {
-    background-color: #000;
-    z-index: 1;
-    transition: background-color 1s ease-in-out;
-    -webkit-transition: background-color 1s ease-in-out;
-    -moz-transition: background-color 1s ease-in-out;
-}
-
-.fade-back {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-}
-
-.fader {
-    position: fixed;
-    width: 100%;
-    height: 100%;
 }
