@@ -1,4 +1,4 @@
-# Handles POSTs from the Meducation server metrics handler
+# Handles POSTs from the Meducation server metrics handler (via Amazon SNS)
 
 exports.traffic = (request, response) ->
 
@@ -7,13 +7,13 @@ exports.traffic = (request, response) ->
 
   request.io.broadcast 'metric',
     metrics:
-      anon: message.anon,
-      normal: message.normal,
+      anon: message.anon
+      normal: message.normal
       premium: message.premium
-
-  response.send 200
-
-exports.events = (request, response) ->
-  console.log request.body
+    tubes:
+      unique_loggedin_last_hour: message.unique_loggedin_last_hour
+      unique_loggedin_last_day: message.unique_loggedin_last_day
+      unique_loggedin_last_week: message.unique_loggedin_last_week
+      unique_loggedin_last_month: message.unique_loggedin_last_month
 
   response.send 200

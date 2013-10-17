@@ -3,6 +3,7 @@
 express = require 'express.io'
 routes = require './routes'
 metrics = require './routes/metrics'
+events = require './routes/events'
 http = require 'http'
 path = require 'path'
 
@@ -43,8 +44,8 @@ if app.get 'env' is 'development'
 app.http().io()
 
 app.get '/', routes.index
-app.post('/metrics/traffic', metrics.traffic)
-app.post('/events', metrics.events)
+app.post '/metrics/traffic', metrics.traffic
+app.post '/events', events.events
 
 port = app.get 'port'
 app.listen port, ->

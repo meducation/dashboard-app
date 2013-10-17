@@ -1,7 +1,14 @@
 (function() {
-  var data, socket, source, template;
+  var compileTemplate, metricBlockTemplate, metricData, socket, testTubesTemplate;
 
-  data = {
+  compileTemplate = function(templateSelector) {
+    var source, template;
+    source = $(templateSelector).html();
+    template = Handlebars.compile(source);
+    return template;
+  };
+
+  metricData = {
     metrics: {
       anon: {
         colour: 'orange',
@@ -18,14 +25,34 @@
         number: '...',
         title: 'Premium Visitors'
       }
+    },
+    tubes: {
+      unique_loggedin_last_hour: {
+        title: 'Last hour',
+        number: '...'
+      },
+      unique_loggedin_last_day: {
+        title: 'Last day',
+        number: '...'
+      },
+      unique_loggedin_last_week: {
+        title: 'Last week',
+        number: '...'
+      },
+      unique_loggedin_last_month: {
+        title: 'Last month',
+        number: '...'
+      }
     }
   };
 
-  source = $('#metric-block-template').html();
+  metricBlockTemplate = compileTemplate('#metric-block-template');
 
-  template = Handlebars.compile(source);
+  $('.metric-blocks').html(metricBlockTemplate(metricData));
 
-  $('.metric-channel-blocks').html(template(data));
+  testTubesTemplate = compileTemplate('#test-tube-template');
+
+  $('.test-tubes').html(testTubesTemplate(metricData));
 
   socket = io.connect("http://" + window.location.hostname);
 
@@ -34,9 +61,17 @@
   socket.on('metric', function(payload) {
     var key;
     for (key in payload.metrics) {
-      data.metrics[key].number = payload.metrics[key];
+      metricData.metrics[key].number = payload.metrics[key];
     }
-    return $('.metric-channel-blocks').html(template(data));
+    for (key in payload.tubes) {
+      metricData.tubes[key].number = payload.tubes[key];
+    }
+    $('.metric-blocks').html(metricBlockTemplate(metricData));
+    return $('.test-tubes').html(testTubesTemplate(metricData));
+  });
+
+  socket.on('event', function(payload) {
+    return console.log(payload);
   });
 
 }).call(this);
