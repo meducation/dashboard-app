@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
 
   coffeeFiles = [
-    "public/routes/*.coffee"
+    "routes/*.coffee"
     "src/coffee/*.coffee"
     "test/*.coffee"
     "app.coffee"
