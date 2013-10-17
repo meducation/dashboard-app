@@ -15,24 +15,23 @@ app.set 'views', __dirname + '/views'
 app.use express.favicon()
 app.use express.logger('dev')
 
-app.use((req, res, next) ->
-  req.rawBody = ''
-  console.log 'start of raw body'
-  req.setEncoding('utf8')
+# Use a raw body parser to handle SNS messages
+# They are received as plain/text.
 
-  req.on('data', (chunk) ->
-    console.log 'receiving data'
-    req.rawBody += chunk
-  )
+app.use (request, response, next) ->
+  request.rawBody = ''
+  request.setEncoding 'utf8'
 
-  req.on('end', () ->
-    console.log 'finished'
-    console.log req.rawBody
+  request.on 'data', (chunk) ->
+    request.rawBody += chunk
+
+  request.on 'end', () ->
+    console.log """Received headers:
+      #{JSON.stringify request.headers}"""
+    console.log """Received raw body:
+      #{request.rawBody}"""
     next()
-  )
-)
 
-#app.use express.bodyParser()
 app.use express.methodOverride()
 app.use express.static path.join __dirname, 'public'
 
