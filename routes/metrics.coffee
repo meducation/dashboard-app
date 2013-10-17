@@ -5,16 +5,16 @@ exports.traffic = (request, response) ->
   console.log "***HEADERS***"
   console.log request.headers
   console.log "***BODY***"
-  console.log request.body
+  console.log request.rawBody
 
-  for metric, value of request.body
-    console.log "received: #{metric}:#{value}"
-
-  request.io.broadcast 'metric',
-    metrics:
-      anon: request.body.anon,
-      normal: request.body.normal,
-      premium: request.body.premium
+#  for metric, value of request.body
+#    console.log "received: #{metric}:#{value}"
+#
+#  request.io.broadcast 'metric',
+#    metrics:
+#      anon: request.body.anon,
+#      normal: request.body.normal,
+#      premium: request.body.premium
 
   response.send 200
 
