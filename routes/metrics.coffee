@@ -2,7 +2,8 @@
 
 exports.traffic = (request, response) ->
 
-  console.log request.headers
+  console.log "***HEADERS*** #{request.headers}"
+  console.log "***BODY*** #{request.body}"
 
   for metric, value of request.body
     console.log "received: #{metric}:#{value}"
