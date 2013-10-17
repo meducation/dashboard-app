@@ -3,8 +3,11 @@ module.exports = (grunt) ->
   coffeeFiles = [
     "routes/*.coffee"
     "src/coffee/*.coffee"
-    "test/*.coffee"
     "app.coffee"
+  ]
+  clientVendorFiles = [
+    "lib/jquery/jquery.js"
+    "lib/handlebars/handlebars.js"
   ]
 
   grunt.initConfig
@@ -34,7 +37,7 @@ module.exports = (grunt) ->
         options:
           livereload: true
           nospawn: true
-        files: coffeeFiles
+        files: [coffeeFiles, ["test/coffee/**/*.coffee"]]
         tasks: [
           "express:dev"
           "coffeelint:files"
@@ -67,27 +70,23 @@ module.exports = (grunt) ->
         ext: ".js"
 
     jasmine:
-      test:
-        src: coffeeFiles
+      clientTest:
+        src: "public/javascripts/*.js"
         options:
           specs: "tmp/test/js/*Spec.js"
           helpers: [
 
           ]
-          vendor: [
-
-          ]
+          vendor: clientVendorFiles
           keepRunner: true
-      coverage:
-        src: coffeeFiles
+      clientCoverage:
+        src: "public/javascripts/*.js"
         options:
           specs: "tmp/test/js/*Spec.js"
           helpers: [
 
           ]
-          vendor: [
-
-          ]
+          vendor: clientVendorFiles
           template: require("grunt-template-jasmine-istanbul")
           templateOptions:
             coverage: "tmp/coverage/coverage.json"
@@ -107,10 +106,10 @@ module.exports = (grunt) ->
     ["express:dev", "watch"]
 
   grunt.registerTask "test-no-coverage", "Run Jasmine tests without coverage",
-    ["coffee", "jasmine:test"]
+    ["coffee", "jasmine:clientTest"]
 
   grunt.registerTask "test", "Run Jasmine tests",
-    ["coffee", "jasmine:coverage"]
+    ["coffee", "jasmine:clientCoverage"]
 
   grunt.registerTask "default", "Run for first time setup.",
     ["clean", "bowerful", "coffeelint", "test"]
