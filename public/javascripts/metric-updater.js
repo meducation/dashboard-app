@@ -17,7 +17,7 @@
   updateIfVersionChanges = function() {
     var currentVersion, intervalCheckInMilliseconds;
     currentVersion = null;
-    intervalCheckInMilliseconds = 1000;
+    intervalCheckInMilliseconds = 1000 * 60;
     socket.emit('version', {}, function(response) {
       currentVersion = response.version;
       return $('.version').replaceWith(versionTemplate(response));

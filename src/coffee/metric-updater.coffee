@@ -9,7 +9,7 @@ testTubesTemplate = compileTemplate '#test-tube-template'
 
 updateIfVersionChanges = ->
   currentVersion = null
-  intervalCheckInMilliseconds = 1000 #* 60
+  intervalCheckInMilliseconds = 1000 * 60
 
   # Set the version first before checking it changes.
   socket.emit 'version', {}, (response) ->
