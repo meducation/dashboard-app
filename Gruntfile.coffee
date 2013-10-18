@@ -100,6 +100,10 @@ module.exports = (grunt) ->
 #              branches: 80
 #              functions: 80
 
+    bump:
+      options:
+        pushTo: 'all --all'
+
   require("matchdep").filterDev("grunt-!(template)*").forEach grunt.loadNpmTasks
 
   grunt.registerTask "server", "Start a web server to host the app.",
