@@ -10,16 +10,24 @@ A dashboard application to provide metrics that show the pulse of Meducation.
 This is a node application.  You should install [node](http://nodejs.org/) first then:
 
     npm install
-    npm start
+    grunt server watch
 
 This starts up the dashboard at `http://localhost:3000`
 
 ## Pushing metrics
 
 The application can receive metrics as POST requests.
-For example, to send visitor information:
+For example, to send visitor information create a POST to:
 
-    curl -X PO -H "Content-Type: application/json" -d '{"anon":"1","normal":"2","premium":"3"}' http://localhost:3000/metrics/traffic
+  http://localhost:3000/metrics/traffic
+
+Containing a raw body:
+
+```
+  {
+  	"Message" : "{\"anon\":1,\"normal\":2,\"premium\":3,\"unique_loggedin_last_hour\":4,\"unique_loggedin_last_day\":5,\"unique_loggedin_last_week\":6,\"unique_loggedin_last_month\":7}"
+  }
+```
 
 ## Contributing
 
