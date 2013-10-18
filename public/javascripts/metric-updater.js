@@ -1,11 +1,34 @@
 (function() {
-  var compileTemplate, metricBlockTemplate, metricData, socket, testTubesTemplate;
+  var compileTemplate, metricBlockTemplate, metricData, socket, testTubesTemplate, updateIfVersionChanges, versionTemplate;
 
   compileTemplate = function(templateSelector) {
     var source, template;
     source = $(templateSelector).html();
     template = Handlebars.compile(source);
     return template;
+  };
+
+  versionTemplate = compileTemplate('#version-template');
+
+  metricBlockTemplate = compileTemplate('#metric-block-template');
+
+  testTubesTemplate = compileTemplate('#test-tube-template');
+
+  updateIfVersionChanges = function() {
+    var currentVersion, intervalCheckInMilliseconds;
+    currentVersion = null;
+    intervalCheckInMilliseconds = 1000;
+    socket.emit('version', {}, function(response) {
+      currentVersion = response.version;
+      return $('.version').replaceWith(versionTemplate(response));
+    });
+    return setInterval(function() {
+      return socket.emit('version', {}, function(response) {
+        if (response.version !== currentVersion) {
+          return location.reload();
+        }
+      });
+    }, intervalCheckInMilliseconds);
   };
 
   metricData = {
@@ -46,17 +69,13 @@
     }
   };
 
-  metricBlockTemplate = compileTemplate('#metric-block-template');
-
   $('.metric-blocks').html(metricBlockTemplate(metricData));
-
-  testTubesTemplate = compileTemplate('#test-tube-template');
 
   $('.test-tubes').html(testTubesTemplate(metricData));
 
   socket = io.connect("http://" + window.location.hostname);
 
-  socket.emit('ready');
+  updateIfVersionChanges();
 
   socket.on('metric', function(payload) {
     var key;

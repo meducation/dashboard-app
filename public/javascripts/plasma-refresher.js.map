@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "plasma-refresher.js",
+  "sourceRoot": "../../src/coffee/",
+  "sources": [
+    "plasma-refresher.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;CAAA,KAAA,uBAAA;;CAAA,CAAA,CAAgC,CAAhC,yBAAA;;CAAA,CAEA,CAAa,MAAA,EAAb;CACE,GAAA,IAAA,GAAA,IAAA;CACY,EAAA,MAAA,CAAZ,CAAA;CACE,OAAA,GAAA,EAAA;CADF,CAEE,EAFF,CAAY;CAFd,CAKE,CALW,0BAAb;CAFA"
+}

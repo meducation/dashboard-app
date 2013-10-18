@@ -3,6 +3,24 @@ compileTemplate = (templateSelector) ->
   template = Handlebars.compile source
   template
 
+versionTemplate = compileTemplate '#version-template'
+metricBlockTemplate = compileTemplate '#metric-block-template'
+testTubesTemplate = compileTemplate '#test-tube-template'
+
+updateIfVersionChanges = ->
+  currentVersion = null
+  intervalCheckInMilliseconds = 1000 #* 60
+
+  # Set the version first before checking it changes.
+  socket.emit 'version', {}, (response) ->
+    currentVersion = response.version
+    $('.version').replaceWith versionTemplate(response)
+
+  setInterval ->
+    socket.emit 'version', {}, (response) ->
+      location.reload() unless response.version is currentVersion
+  , intervalCheckInMilliseconds
+
 metricData =
   metrics:
     anon:
@@ -23,14 +41,11 @@ metricData =
     unique_loggedin_last_month:
       title: 'Last month', number: '...'
 
-metricBlockTemplate = compileTemplate '#metric-block-template'
 $('.metric-blocks').html metricBlockTemplate(metricData)
-
-testTubesTemplate = compileTemplate '#test-tube-template'
 $('.test-tubes').html testTubesTemplate(metricData)
 
 socket = io.connect "http://#{window.location.hostname}"
-socket.emit 'ready'
+updateIfVersionChanges()
 
 socket.on 'metric', (payload) ->
   for key of payload.metrics

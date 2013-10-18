@@ -1,5 +1,6 @@
 # Module dependencies.
 
+pkg = require './package.json'
 express = require 'express.io'
 routes = require './routes'
 metrics = require './routes/metrics'
@@ -43,6 +44,11 @@ if app.get 'env' is 'development'
   app.use express.errorHandler()
 
 app.http().io()
+
+# Respond to client requests for the latest version
+
+app.io.route 'version', (request) ->
+  request.io.respond { version: pkg.version }
 
 app.get '/', routes.index
 app.post '/metrics/traffic', metrics.traffic
