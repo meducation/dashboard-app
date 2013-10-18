@@ -34,7 +34,8 @@ app.use (request, response, next) ->
     next()
 
 app.use express.methodOverride()
-app.use express.static path.join __dirname, 'public'
+app.use '/', express.static path.join __dirname, 'public'
+app.use '/src', express.static path.join __dirname, 'src'
 
 # Development only.
 
