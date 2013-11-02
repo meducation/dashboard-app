@@ -17,61 +17,53 @@
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
+    <div class="fader">
+        <header class="heading">
+            <div class="pure-u-1-8">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="pure-u-3-4">
+                <ul>
+                    <li><a href="#"><i class="fa fa-eye"></i>Overview</a></li>
+                    <li><a href="#"><i class="fa fa-files-o"></i>Content</a></li>
+                    <li><a href="#"><i class="fa fa-code"></i>Development</a></li>
+                    <li><a href="#"><i class="fa fa-group"></i>Community</a></li>
+                    <li><a href="#"><i class="fa fa-dollar"></i>Revenue</a></li>
+                </ul>
+            </div>
+            
+            <div class="pure-u-1-8">
+                <p class="version">Version ?</p>
+                <script id="version-template" type="text/x-handlebars-template">
+                    <p class="version">Version {{ this.version }}</p>
+                </script>
+            </div>
+        </header>
+        <div class="pure-g">
+            <div class="metric-blocks full-width">
+                <script id="metric-block-template" type="text/x-handlebars-template">
+                    {{#each metrics}}
+                    <div class="metric-block pure-u-1-3 {{ this.colour }}">
+                        <p class="metric-block-number">{{ this.number }}</p>
 
-<!--[if gte IE 9]>
-  <style type="text/css">
-    .gradient {
-       filter: none;
-    }
-  </style>
-<![endif]-->
-
-    <div class="fader"></div>
-    <header class="heading">
-        <div class="pure-u-1-8">
-            <h1>Dashboard</h1>
-        </div>
-        <div class="pure-u-3-4">
-            <ul>
-                <li><a href="#"><i class="fa fa-eye"></i>Overview</a></li>
-                <li><a href="#"><i class="fa fa-files-o"></i>Content</a></li>
-                <li><a href="#"><i class="fa fa-code"></i>Development</a></li>
-                <li><a href="#"><i class="fa fa-group"></i>Community</a></li>
-                <li><a href="#"><i class="fa fa-dollar"></i>Revenue</a></li>
-            </ul>
-        </div>
-        
-        <div class="pure-u-1-8.float-right">
-            <p class="version">Version ?</p>
-            <script id="version-template" type="text/x-handlebars-template">
-                <p class="version">Version {{ this.version }}</p>
-            </script>
-        </div>
-    </header>
-    <div class="pure-g">
-        <div class="metric-blocks full-width">
-            <script id="metric-block-template" type="text/x-handlebars-template">
-                {{#each metrics}}
-                <div class="metric-block pure-u-1-3 {{ this.colour }}">
-                    <p class="metric-block-number">{{ this.number }}</p>
-
-                    <p class="metric-block-text">{{ this.title }}</p>
-                </div>
-                {{/each}}
-            </script>
-        </div>
-        <div class="test-tubes full-width">
-            <script id="test-tube-template" type="text/x-handlebars-template">
-                <div class="pure-u-1-3"><!-- Just in place to pad the grid out--></div>
-                {{#each tubes}}
-                <div class="test-tube pure-u-1-12 ">
-                    <p class="test-tube-number">{{ this.number }}</p>
-                    <p class="test-tube-text">Unique</p>
-                    <p class="test-tube-text">{{ this.title }}</p>
-                </div>
-                {{/each}}
-                <div class="pure-u-1-3"><!-- Just in place to pad the grid out--></div>
-            </script>
+                        <p class="metric-block-text">{{ this.title }}</p>
+                    </div>
+                    {{/each}}
+                </script>
+            </div>
+            <div class="test-tubes full-width">
+                <script id="test-tube-template" type="text/x-handlebars-template">
+                    <div class="pure-u-1-3"><!-- Just in place to pad the grid out--></div>
+                    {{#each tubes}}
+                    <div class="test-tube pure-u-1-12 ">
+                        <p class="test-tube-number">{{ this.number }}</p>
+                        <p class="test-tube-text">Unique</p>
+                        <p class="test-tube-text">{{ this.title }}</p>
+                    </div>
+                    {{/each}}
+                    <div class="pure-u-1-3"><!-- Just in place to pad the grid out--></div>
+                </script>
+            </div>
         </div>
     </div>
 </body>

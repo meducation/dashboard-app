@@ -19,14 +19,8 @@ h1 {
     margin: 0;
 }
 
-a, a:hover, a:active {}
-
 .fa {
     padding-right: 0.75em;
-}
-
-.float-right {
-    float: right;
 }
 
 .heading {
@@ -44,18 +38,13 @@ a, a:hover, a:active {}
     background: #1f2326; /* Old browsers */
 }
 
-.heading a, a:active, a:hover {
-    text-decoration: none;
-    color: #808183;
-}
-
 .heading h1 {
     -webkit-box-flex: 5;
     -moz-box-flex: 5;
     -webkit-flex: 5;
     -ms-flex: 5;
     flex: 5;
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 300;
 }
 
@@ -70,8 +59,13 @@ a, a:hover, a:active {}
     border-right: 1px solid #2d3337;
 }
 
+.heading li a, a:active {
+    text-decoration: none;
+    color: #808183;
+}
+
 .heading li a:hover {
-    color: #fff; 
+    color: #fff;
 }
 
 .version {
