@@ -3,8 +3,10 @@ html {
 }
 
 body {
+    font-size: 1.4rem;
     color: #2d2d29;
     background-color: #f7f7f7;
+    font-weight: 300;
 }
 
 body,
@@ -17,6 +19,14 @@ h1 {
     margin: 0;
 }
 
+.fa {
+    padding-right: 0.75em;
+}
+
+.float-right {
+    float: right;
+}
+
 .heading {
     display: -webkit-box;
     display: -moz-box;
@@ -27,9 +37,9 @@ h1 {
     -webkit-flex-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
-    background-color: #f2f2f2;
-    padding: 34px 0 22px 48px;
-    border-bottom: 1px solid #dfdfdf;
+    color: #fff;
+    padding: 0 2em;
+    background: #1f2326; /* Old browsers */
 }
 
 .heading h1 {
@@ -40,6 +50,19 @@ h1 {
     flex: 5;
     font-size: 2.4rem;
     font-weight: 300;
+}
+
+.heading ul {
+    list-style-type: none;
+    display: inline;
+}
+
+.heading li {
+    display: inline;
+}
+
+.heading li a:hover {
+    background-color: #2d3337;
 }
 
 .version {

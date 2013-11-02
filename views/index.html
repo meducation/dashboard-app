@@ -12,18 +12,59 @@
     <script type="text/javascript" src="//use.typekit.net/zry5tcv.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <link rel="stylesheet" href="stylesheets/fontello.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
-    <div class="fader"></div>
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
     <header class="heading">
+        <div class="pure-u-1-8">
+            <h1>Meducation</h1>
+        </div>
+        <ul>
+            <li><a href="#"><i class="fa fa-eye"></i>Overview</a></li>
+            <li><a href="#">Content</a></li>
+            <li>Development</li>
+            <li>Community</li>
+            <li>Revenue</li>
+        </ul>
+        
+        <div class="pure-u-1-8.float-right">
+            <p class="version">Version ?</p>
+            <script id="version-template" type="text/x-handlebars-template">
+                <p class="version">Version {{ this.version }}</p>
+            </script>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="fader"></div>
+    <!-- <header class="heading">
         <h1>Dashboard <span class="slash">/</span><b> Overview</b></h1>
         <p class="version">Version ?</p>
         <script id="version-template" type="text/x-handlebars-template">
             <p class="version">Version {{ this.version }}</p>
         </script>
-    </header>
+    </header> -->
     <h2 class="sub-heading">Visitor Stats</h2>
     <div class="pure-g">
         <div class="metric-blocks full-width">
