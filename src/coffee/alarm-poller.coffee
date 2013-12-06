@@ -5,7 +5,7 @@ compileTemplate = (templateSelector) ->
 
 alarmsTemplate = compileTemplate '#alarms-template'
 
-pollingTimeInMilliseconds = 60000
+pollingTimeInMilliseconds = 10000
 
 setInterval ->
   $.get 'http://pergo.meducation.net:4567', (alarmsData) ->
