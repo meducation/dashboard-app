@@ -120,6 +120,18 @@ h1 {
     color: #808183;
 }
 
+.alarms-header {
+    padding: 0 2rem;
+}
+
+.alarm p {
+    text-align: center;
+    color: #fff;
+    background-color: #e84939;
+    border: 1px solid #f2f3f7;
+    padding: 1em 0;
+}
+
 .full-width {
     width: 100%;
 }

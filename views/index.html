@@ -64,6 +64,18 @@
                 {{/each}}
             </script>
         </div>
+        <div class="pure-u-1">
+            <h2 class="alarms-header">Alarms</h2>
+        </div>
+        <div class="alarms full-width">
+            <script id="alarms-template" type="text/x-handlebars-template">
+                {{#each alarms }}
+                <div class="alarm pure-u-1-12">
+                    <p>{{ this }}</p>
+                </div>
+                {{/each}}
+            </script>
+        </div>
     </div>
 </body>
 <script src="/socket.io/socket.io.js"></script>
@@ -71,5 +83,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
 <script src="/javascripts/plasma-refresher.js"></script>
 <script src="/javascripts/metric-updater.js"></script>
+<script src="/javascripts/alarm-poller.js"></script>
+
 </body>
 </html>
