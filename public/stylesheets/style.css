@@ -121,6 +121,7 @@ h1 {
 }
 
 .alarms-header {
+    margin: 0;
     padding: 0 2rem;
 }
 
