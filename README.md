@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/meducation/front-dashboard-app.png)](https://travis-ci.org/meducation/dashboard-app)
+[![Build Status](https://travis-ci.org/meducation/dashboard-app.png)](https://travis-ci.org/meducation/dashboard-app)
 [![Coverage Status](https://coveralls.io/repos/meducation/dashboard-app/badge.png)](https://coveralls.io/r/meducation/dashboard-app)
 
 # Meducation Dashboard Application
