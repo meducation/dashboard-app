@@ -125,12 +125,22 @@ h1 {
     padding: 0 2rem;
 }
 
+.alarm {
+    border: 1px solid #f2f3f7;
+}
+
 .alarm p {
     text-align: center;
     color: #fff;
-    background-color: #e84939;
-    border: 1px solid #f2f3f7;
     padding: 1em 0;
+}
+
+.alarm-ok {
+    background-color: green;
+}
+
+.alarm-fail {
+    background-color: #e84939;
 }
 
 .full-width {

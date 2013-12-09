@@ -68,9 +68,14 @@
             <h2 class="alarms-header">Alarms</h2>
         </div>
         <div class="alarms full-width">
-            <script id="alarms-template" type="text/x-handlebars-template">
+            <script id="alarms-ok-template" type="text/x-handlebars-template">
+                <div class="alarm alarm-ok pure-u-1">
+                    <p>OK</p>
+                </div>
+            </script>
+            <script id="alarms-fail-template" type="text/x-handlebars-template">
                 {{#each alarms }}
-                <div class="alarm pure-u-1-12">
+                <div class="alarm alarm-fail pure-u-1-12">
                     <p>{{ this }}</p>
                 </div>
                 {{/each}}
