@@ -1,7 +1,7 @@
 {
   "name": "meducation-dashboard",
   "description": "A dashboard application to provide metrics that show the pulse of Meducation",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": true,
   "scripts": {
     "start": "coffee app.coffee",
