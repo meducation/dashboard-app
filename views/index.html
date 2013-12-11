@@ -20,9 +20,10 @@
     <div class="fader"></div>
     <header class="heading">
       <div class="pure-g-r">
-          <div class="pure-u-1-12">
+          <div class="pure-u-1-2">
               <h1>Dashboard</h1>
           </div>
+          <!--
           <div class="pure-u-5-6">
               <ul>
                   <li><a href="#"><i class="fa fa-eye"></i>Overview</a></li>
@@ -31,12 +32,13 @@
                   <li><a href="#"><i class="fa fa-group"></i>Community</a></li>
                   <li><a href="#"><i class="fa fa-dollar"></i>Revenue</a></li>
               </ul>
-          </div>
+            </div>
+          -->
 
-          <div class="pure-u-1-12">
-              <p class="version">Version ?</p>
+          <div class="pure-u-1-2">
+              <p class="version">Version&nbsp;?</p>
               <script id="version-template" type="text/x-handlebars-template">
-                  <p class="version">Version {{ this.version }}</p>
+                  <p class="version">Version&nbsp;{{ this.version }}</p>
               </script>
           </div>
         </div>
@@ -76,7 +78,7 @@
         <script id="alarms-fail-template" type="text/x-handlebars-template">
           <div class="pure-g-r">
             {{#each alarms }}
-            <div class="alarm alarm-fail pure-u-1-12">
+            <div class="alarm alarm-fail pure-u-1-6">
                 <p>{{ this }}</p>
             </div>
             {{/each}}
